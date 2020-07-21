@@ -54,8 +54,7 @@ export default {
             }
             else{
                 
-            this.$http.post('https://blog-1de0e.firebaseio.com/data.json', this.blog).then(response =>{
-            console.log(response);
+            this.$http.post('https://blog-1de0e.firebaseio.com/data.json', this.blog).then(() =>{
             this.shows = false;
             this.show = true;
             
