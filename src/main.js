@@ -38,7 +38,8 @@ const router = new VueRouter({
   routes: routes,
   mode: "history"
 });
-Vue.config.productionTip = false
+
+Vue.config.productionTip = false;
 
 Vue.filter('lowercase', function(value){
   return value.toLowerCase();
