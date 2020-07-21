@@ -42,6 +42,10 @@ Vue.config.productionTip = false
 
 Vue.filter('lowercase', function(value){
   return value.toLowerCase();
+});
+
+Vue.filter('snippet', function(value){
+  return value.slice(0,100) + '...';
 })
 
 new Vue({

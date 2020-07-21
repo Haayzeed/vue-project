@@ -8,6 +8,9 @@
                         <div class="alert">
                             <div class="alert alert-success" v-if="show">Post Created Successfully.</div>
                         </div>
+                        <div class="alert">
+                            <div class="alert alert-danger" v-if="shows">Fill Fields Correctly.</div>
+                        </div>
                         <div class="form-group">
                             <label for="">Author's Name</label>
                             <input type="text" class="form-control" placeholder="Author's Name" v-model="blog.author">
@@ -39,18 +42,27 @@ export default {
                 title: '',
                 post: ''
             },
-            show: false
+            show: false,
+            shows: false
         }
     },
     methods: {
         addPost(e){
             e.preventDefault();
+            if((this.blog.author == '') || (this.blog.title == '') || (this.blog.post == '')){
+                this.shows = 'true';
+            }
+            else{
+                
             this.$http.post('https://blog-1de0e.firebaseio.com/data.json', this.blog).then(response =>{
             console.log(response);
-            this.show = 'true';
+            this.shows = false;
+            this.show = true;
+            
         }, error=>{
             console.log(error)
         })
+            }
         }
     },
 }

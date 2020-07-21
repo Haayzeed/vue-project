@@ -5,9 +5,9 @@
                 <div class="col-md-6 offset-md-3">
                     <h3 class="text-center mb-4">View Blog Post</h3>
                     <div class="col-md-12" v-for="(blog, index) in blogs" :key="index">
-                    <router-link :to="'viewBlog/' + blog.id">{{blog.title}}</router-link>
-                    <P>{{blog.post}}</P>
-                    <P>{{blog.author}}</P>
+                    <router-link :to="'viewBlog/' + blog.id" class="h5 text-dark">{{blog.title}}</router-link>
+                    <P>{{blog.post | snippet}}</P>
+                    <P><span class="font-weight-bold">Author:</span>{{blog.author}}</P>
                     </div>
                 </div>
             </div>
