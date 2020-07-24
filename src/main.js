@@ -34,6 +34,7 @@ const routes = [
     component: viewBlog
   }
 ]
+
 const router = new VueRouter({
   routes: routes,
   mode: "history"

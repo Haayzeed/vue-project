@@ -5,7 +5,9 @@
             <hr>
             <h4>{{blog.title}}</h4>
             <p>{{blog.post}}</p>
-            <p><span class="font-weight-bold">Author:</span> {{blog.author}}</p>
+            <p class="mb-0"><span class="font-weight-bold">Author:</span> {{blog.author}}</p>
+            <p><span class="font-weight-bold">Category:</span> {{blog.category}}</p>
+
         </div>
     </div>
 </template>
@@ -23,15 +25,6 @@ export default {
     created(){
       this.$http.get('https://blog-1de0e.firebaseio.com/data/' + this.id + '.json').then(response =>{
           this.blog = response.data;
-          
-        //   const resultArray = [];
-        //   for (let key in response.data){
-        //     // var result = this.users.push(response.data[key]);
-        //     response.data[key].id = key
-        //     resultArray.push(response.data[key]);
-        //   }
-        //   this.blogs = resultArray;
-        //   console.log(this.blogs);
         }, error=>{
           console.log(error)
         }) 

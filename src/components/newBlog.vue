@@ -20,6 +20,12 @@
                             <input type="text" class="form-control" placeholder="Blog Title" v-model="blog.title">
                         </div>
                         <div class="form-group">
+                            <label for="">Blog Category</label>
+                            <select name="" id="" class="form-control" v-model="blog.category">
+                                <option v-for="cat in cats" :key="cat">{{cat}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="">Blog Post</label>
                             <textarea name="" id="" cols="30" rows="10" class="form-control" v-model="blog.post"></textarea>
                         </div>
@@ -40,8 +46,10 @@ export default {
             blog:{
                 author: '',
                 title: '',
-                post: ''
+                post: '',
+                category: ''
             },
+            cats: ["All", "Programming", "Sports", "Tech"],
             show: false,
             shows: false
         }
@@ -53,11 +61,9 @@ export default {
                 this.shows = 'true';
             }
             else{
-                
-            this.$http.post('https://blog-1de0e.firebaseio.com/data.json', this.blog).then(() =>{
-            this.shows = false;
-            this.show = true;
-            
+                this.$http.post('https://blog-1de0e.firebaseio.com/data.json', this.blog).then(() =>{
+                this.shows = false;
+                this.show = true;
         }, error=>{
             console.log(error)
         })
