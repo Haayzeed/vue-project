@@ -56,8 +56,11 @@ export default {
         filteredBlogs(){
             return this.blogs.filter((blog) =>{
                 return blog.title.toLowerCase().match(this.search.toLowerCase());
-            }).filter((blog) =>{
-                return blog.category.match(this.catt);
+            }).filter((blog) => {
+            if (this.catt === "All") {
+                return blog.category;
+            }
+            return blog.category.match(this.catt);
             });
         }
     }
